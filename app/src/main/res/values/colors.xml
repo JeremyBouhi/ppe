@@ -3,4 +3,23 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="blanc">#ffffff</color>
+
+
+    <color name="backgroundUser">#ffecd8</color>
+    <color name="backgroundAdmin">#f0faff</color>
+
+    //couleur de la police principale
+    <color name="orange">#ff7e00</color>
+    <color name="bleu">#00a2ff</color>
+
+    //pour la bannière du haut
+    <color name="orangeClair">#ffcc9a</color>
+    <color name="bleuClair">#c1eaff</color>
+
+    //pour l'onglet selectionné
+    <color name="orangeFonce">#ff5400</color>
+    <color name="bleuFonce">#0030ff</color>
+
+
 </resources>

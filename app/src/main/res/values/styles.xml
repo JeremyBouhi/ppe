@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BoutonTheme">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/blanc</item>
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:background">@color/orange</item>
+        <item name="android:layout_marginTop">@dimen/layoutMarginTop</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        
+
+    </style>
+
 </resources>

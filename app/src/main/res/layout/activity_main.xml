@@ -12,7 +12,8 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
-        tools:ignore="MissingConstraints,UselessLeaf">
+        tools:ignore="MissingConstraints,UselessLeaf"
+        android:background="@color/backgroundUser">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -43,11 +44,9 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             tools:layout_editor_absoluteX="130dp"
-            tools:layout_editor_absoluteY="340dp" />
+            tools:layout_editor_absoluteY="340dp"
+            style="@style/BoutonTheme"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
