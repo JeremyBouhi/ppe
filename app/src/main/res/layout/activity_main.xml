@@ -17,15 +17,9 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/logofinal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
         <EditText
             android:id="@+id/editText"
@@ -54,6 +48,6 @@
             android:layout_gravity="center_horizontal"
             tools:layout_editor_absoluteX="130dp"
             tools:layout_editor_absoluteY="340dp" />
-
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
