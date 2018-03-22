@@ -13,8 +13,8 @@
 
         <TextView
             android:id="@+id/textView4"
+            style="@style/TopDeco"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="Payer" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
