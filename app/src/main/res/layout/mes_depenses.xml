@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
+=======
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="calculator.moi.andoid.fr.paysmart.MesDepenses">
+>>>>>>> 27eeedbfe13ff78fe6aea042744a1729203d73a8
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+<<<<<<< HEAD
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,3 +40,13 @@
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
+=======
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:text="Dépenses"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
+>>>>>>> 27eeedbfe13ff78fe6aea042744a1729203d73a8
