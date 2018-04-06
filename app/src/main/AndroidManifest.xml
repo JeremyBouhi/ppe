@@ -25,7 +25,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-<<<<<<< HEAD
 
         <activity android:name=".MesDepenses"
             android:parentActivityName=".MainActivity">
@@ -34,10 +33,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-=======
-        <activity android:name=".MesDepenses" />
+
         <activity android:name=".EcranPaiement"></activity>
->>>>>>> 27eeedbfe13ff78fe6aea042744a1729203d73a8
+
     </application>
 
 </manifest>

@@ -11,9 +11,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-<<<<<<< HEAD
-        <LinearLayout
-=======
+        <LinearLayout android:layout_height="match_parent"
+            android:layout_width="match_parent" />
+
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
@@ -23,11 +23,10 @@
 
         <TextView
             android:id="@+id/textView2"
->>>>>>> 27eeedbfe13ff78fe6aea042744a1729203d73a8
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="6"
-            android:orientation="vertical">
+            android:orientation="vertical"/>
 
             <TextView
                 android:id="@+id/textView"
@@ -42,6 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
