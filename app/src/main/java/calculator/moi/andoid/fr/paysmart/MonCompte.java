@@ -17,8 +17,7 @@ public class MonCompte extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mon_compte);
 
-        TextView solde = (TextView) findViewById(R.id.textView);
-        solde.setText("Solde Total");
+
 
 
     }

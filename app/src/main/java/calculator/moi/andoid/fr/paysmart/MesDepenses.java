@@ -16,8 +16,7 @@ public class MesDepenses extends FragmentActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mon_compte);
 
-        TextView dep = (TextView) findViewById(R.id.textViewDepenses);
-        dep.setText("Coucou mes deppp");
+
 
 
     }
