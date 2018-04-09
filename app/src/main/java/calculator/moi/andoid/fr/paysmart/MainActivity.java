@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         {
             public void onClick(View actuelView)    //au clic sur le bouton
             {
-                Intent intent = new Intent(MainActivity.this, MonCompte.class);  //Lancer l'activité DisplayVue
+                Intent intent = new Intent(MainActivity.this, MenuDuTurfu.class);  //Lancer l'activité DisplayVue
                 startActivity(intent);    //Afficher la vue
             }
         });

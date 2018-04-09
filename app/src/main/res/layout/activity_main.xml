@@ -12,8 +12,7 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
-        tools:ignore="MissingConstraints,UselessLeaf"
-        android:background="@color/backgroundUser">
+        tools:ignore="MissingConstraints,UselessLeaf">
 
         <ImageView
             android:id="@+id/imageView2"
