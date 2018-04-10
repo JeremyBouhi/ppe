@@ -8,12 +8,11 @@
     tools:context="calculator.moi.andoid.fr.paysmart.MenuDuTurfu">
 
 
-    <fragment
-        android:id="@+id/menu_fragment"
-        class="calculator.moi.andoid.fr.paysmart.MonCompte"
+    <FrameLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout="@layout/mon_compte"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
