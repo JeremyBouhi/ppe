@@ -7,7 +7,7 @@
     tools:context="calculator.moi.andoid.fr.paysmart.EcranPaiement">
 
 
-    <SurfaceView
+    <FrameLayout
         android:id="@+id/camera_preview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
