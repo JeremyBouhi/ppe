@@ -18,32 +18,52 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Common column names
     private static final String KEY_ID = "id";
 
-    // NOTES Table - column names
-    private static final String KEY_TODO = "todo";
-    private static final String KEY_STATUS = "status";
+    // UTILISATEUR Table - column names
+    private static final String EMAIL = "Email";
+    private static final String NOM ="Nom";
+    private static final String PRENOM = "Prenom";
+    private static final String NOM_SOCIETE = "Nom_societe";
+    private static final String VILLE = "Ville";
+    private static final String CATEGORIE = "Categorie";
+    private static final String MOT_DE_PASSE = "Mot_de_passe";
+    private static final String CODE_PIN = "Code_PIN";
+    private static final String RIB = "RIB";
+    private static final String TELEPHONE = "Telephone";
+    private static final String BUDGET_TOTAL = "Budget_total";
 
-    // TAGS Table - column names
-    private static final String KEY_TAG_NAME = "tag_name";
+    // CATEGORIE Table - column names
+    private static final String NOM_CATEGORIE = "Nom_categorie";
 
-    // NOTE_TAGS Table - column names
-    private static final String KEY_TODO_ID = "todo_id";
-    private static final String KEY_TAG_ID = "tag_id";
+    // ARGENT_DONNE Table - column names
+    private static final String EMAIL_RECEVEUR = "Email_receveur";
+    private static final String EMAIL_DISTRIBUTEUR = "Email_distributeur";
+    private static final String CATEGORIE_AUTORISEE = "Categorie_autorisee";
+    private static final String SOMME = "Somme";
+
+    // ARGENT_DEPENSE Table - column names
+    private static final String EMAIL_UTILISATEUR = "Email_utilisateur";
+    private static final String EMAIL_COMMERCE = "Email_commerce";
+    private static final String JOUR = "Jategorie_autorisee";
+    private static final String MONTANT = "Montant";
 
     // Table Create Statements
     // Utilisateur table create statement
     private static final String CREATE_TABLE_UTILISATEUR = "CREATE TABLE "
             + TABLE_UTILISATEUR + " (" + KEY_ID + " INTEGER PRIMARY KEY,"
-            + KEY_TODO + " TEXT,"
-            + KEY_STATUS + " INTEGER)";
+            + EMAIL + " TEXT," + NOM + " TEXT," + PRENOM + "TEXT,"
+            + NOM_SOCIETE + "TEXT," + VILLE + "TEXT," + CATEGORIE + "TEXT,"
+            + MOT_DE_PASSE + "TEXT," + CODE_PIN + "INTEGER," + RIB + "INTEGER,"
+            + TELEPHONE + "TEXT,"
+            + BUDGET_TOTAL + "INTEGER)";
 
     // Categorie table create statement
     private static final String CREATE_TABLE_CATEGORIE = "CREATE TABLE " + TABLE_CATEGORIE
-            + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_TAG_NAME + " TEXT)";
+            + "(" + KEY_ID + " INTEGER PRIMARY KEY," + NOM_CATEGORIE + " TEXT)";
 
     // Argent_Donne table create statement
     private static final String CREATE_TABLE_ARGENT_DONNE = "CREATE TABLE "
             + TABLE_ARGENT_DONNE + "(" + KEY_ID + " INTEGER PRIMARY KEY,"
-            + KEY_TODO_ID + " INTEGER," + KEY_TAG_ID + " INTEGER)";
+            + EMAIL_RECEVEUR + " TEXT," + EMAIL_DISTRIBUTEUR + " TEXT)";
 
     //Argent_depense table create statement
     private static final String CREATE_TABLE_ARGENT_DEPENSE = "CREATE TABLE "
