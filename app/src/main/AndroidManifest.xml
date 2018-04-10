@@ -36,9 +36,8 @@
         </activity>
         <activity android:name=".EcranPaiement" />
         <activity
-            android:name=".menu"
-            android:label="@string/title_activity_menu"
-            android:theme="@style/AppTheme"></activity>
+            android:name=".MenuDuTurfu"
+            android:label="@string/title_activity_menu_du_turfu"></activity>
     </application>
 
 </manifest>
