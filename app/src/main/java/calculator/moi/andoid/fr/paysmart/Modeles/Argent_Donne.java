@@ -5,7 +5,7 @@ public class Argent_Donne {
     //Attributs
     private String email_receveur;
     private String email_distributeur;
-    private Categorie nom_categorie;
+    private Categorie categorie_autorisee;
     private int somme;
 
     //Constructeurs
@@ -31,12 +31,12 @@ public class Argent_Donne {
         this.email_distributeur = email_distributeur;
     }
 
-    public Categorie getNom_categorie() {
-        return nom_categorie;
+    public Categorie getCategorie_autorisee() {
+        return categorie_autorisee;
     }
 
-    public void setNom_categorie(Categorie nom_categorie) {
-        this.nom_categorie = nom_categorie;
+    public void setCategorie_autorisee(Categorie categorie_autorisee) {
+        this.categorie_autorisee = categorie_autorisee;
     }
 
     public int getSomme() {

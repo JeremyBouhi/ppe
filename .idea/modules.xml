@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\jerem\Documents\ppe\PaySmartApp.iml" filepath="C:\Users\jerem\Documents\ppe\PaySmartApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PaySmartApp.iml" filepath="$PROJECT_DIR$/PaySmartApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ppe.iml" filepath="$PROJECT_DIR$/ppe.iml" />
     </modules>
   </component>
 </project>
