@@ -3,10 +3,12 @@ package calculator.moi.andoid.fr.paysmart;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -37,9 +39,12 @@ public class MenuDuTurfu extends AppCompatActivity {
                     return true;
                 case R.id.navigation_notifications:
                     //mTextMessage.setText(R.string.title_notifications);
-                    FragmentManager fragmentManager3 = getFragmentManager();
+                    /*FragmentManager fragmentManager3 = getFragmentManager();
                     FragmentTransaction fragmentTransaction3 = fragmentManager3.beginTransaction();
-                    fragmentTransaction3.replace(R.id.content, new EcranPaiement()).commit();
+                    fragmentTransaction3.replace(R.id.content, new EcranPaiement()).commit();*/
+
+                    Intent intent = new Intent(MenuDuTurfu.this, DataLink.class);
+                    startActivity(intent);
                     return true;
             }
 

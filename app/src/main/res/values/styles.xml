@@ -9,20 +9,19 @@
 
     </style>
 
-    <style name="ToolBarStyle" parent="AppTheme">
-        <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="colorControlNormal">@android:color/white</item>
-    </style>
-
     <style name="BoutonTheme">
-        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_width">250dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/blanc</item>
         <item name="android:textSize">@dimen/textSize</item>
         <item name="android:background">@color/orange</item>
         <item name="android:layout_marginTop">@dimen/layoutMarginTop</item>
         <item name="android:layout_gravity">center_horizontal</item>
+    </style>
 
+    <style name="BoutonThemeAnnuler" parent="BoutonTheme">
+        <item name="android:background">@color/orangeFonce</item>
+        <item name="android:layout_width">200dp</item>
 
     </style>
 
@@ -34,8 +33,14 @@
         <item name="android:background">@color/orangeClair</item>
         <item name="android:layout_marginTop">@dimen/layoutMarginTop</item>
         <item name="android:layout_gravity">center_vertical</item>
+    </style>
 
-
+    <style name="TextConfirm">
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:layout_marginTop">@dimen/layoutMarginTopConfirm</item>
+        <item name="android:layout_marginBottom">@dimen/layoutMarginBottomConfirm</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:color">@color/noir</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

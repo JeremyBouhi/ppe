@@ -3,6 +3,8 @@ package calculator.moi.andoid.fr.paysmart;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -39,13 +41,34 @@ import java.io.IOException;
 public class EcranPaiement extends Fragment {
 
     static final int REQUEST_TAKE_PHOTO = 1;
-    //static final int REQUEST_IMAGE_CAPTURE = 1;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
+    DataPassListener mCallback;
+
+    public interface DataPassListener{
+        public void passData(String data);
+    }
+
+    @Override
+    public void onAttach(Context context)
+    {
+        super.onAttach(context);
+        // This makes sure that the host activity has implemented the callback interface
+        // If not, it throws an exception
+        try
+        {
+            mCallback = (DataPassListener) context;
+        }
+        catch (ClassCastException e)
+        {
+            throw new ClassCastException(context.toString()+ " must implement OnImageClickListener");
+        }
+    }
 
     SurfaceView cameraPreview;
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
-    TextView txtResult;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -79,12 +102,7 @@ public class EcranPaiement extends Fragment {
 
         View view = inflater.inflate(R.layout.ecran_paiement, container, false);
 
-        //pour ouvrir le tel direct
-        //Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        //startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-
         cameraPreview = (SurfaceView) view.findViewById(R.id.camera_preview);
-        txtResult = (TextView) view.findViewById(R.id.result);
 
         barcodeDetector = new BarcodeDetector.Builder(getActivity())
                 .setBarcodeFormats(Barcode.QR_CODE)
@@ -137,16 +155,10 @@ public class EcranPaiement extends Fragment {
                 final SparseArray<Barcode> qrcodes = detections.getDetectedItems();
                 if(qrcodes.size() != 0)
                 {
-                    txtResult.post(new Runnable(){
+                    Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                    vibrator.vibrate(500);
 
-                        @Override
-                        public void run() {
-                            //create vibrate
-                            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                            vibrator.vibrate(1000);
-                            txtResult.setText(qrcodes.valueAt(0).displayValue);
-                        }
-                    });
+                    mCallback.passData(qrcodes.valueAt(0).displayValue);
                 }
             }
         });

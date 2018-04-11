@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="textSize">18dp</dimen>
+    <dimen name="textSize">20dp</dimen>
     <dimen name="layoutMarginTop">30dp</dimen>
+    <dimen name="layoutMarginTopConfirm">100dp</dimen>
+    <dimen name="layoutMarginBottomConfirm">35dp</dimen>
 
 </resources>
