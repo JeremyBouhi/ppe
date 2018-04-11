@@ -57,12 +57,12 @@ public class Utilisateur {
         this.ville = ville;
     }
 
-    public Categorie getCategorie() {
-        return categorie;
+    public String getCategorie() {
+        return categorie.getNom_categorie();
     }
 
-    public void setCategorie(Categorie categorie) {
-        this.categorie = categorie;
+    public void setCategorie(String categorie) {
+        this.categorie.setNom_categorie(categorie);
     }
 
     public String getMot_de_passe() {

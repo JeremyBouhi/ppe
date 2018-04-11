@@ -73,7 +73,7 @@ public class DBManager extends AsyncTask <String,Void,Utilisateur[]> {
                 user[i].setPrenom(json_data.getString("prenom"));
                 user[i].setNom_societe(json_data.getString("nom_societe"));
                 user[i].setVille(json_data.getString("ville"));
-                /*user[i].setCategorie(json_data.getClass("categorie"));*/
+                user[i].setCategorie(json_data.getString("categorie"));
                 user[i].setMot_de_passe(json_data.getString("geocoding"));
                 user[i].setCode_PIN(json_data.getInt("Code_PIN"));
                 user[i].setRIB(json_data.getInt("RIB"));
