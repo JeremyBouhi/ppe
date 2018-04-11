@@ -50,6 +50,9 @@
             android:name=".MenuDuTurfu"
             android:label="@string/title_activity_menu_du_turfu"></activity>
 
+        <activity
+            android:name=".DataLink"> </activity>
+
         <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
     </application>
 
