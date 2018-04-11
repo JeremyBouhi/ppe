@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -20,6 +21,8 @@ public class Confirmation extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        Button valider = (Button) view.findViewById(R.id.buttonValider);
+        Button annuler = (Button) view.findViewById(R.id.buttonAnnuler);
 
         View view = inflater.inflate(R.layout.confirmation, container, false);
 
@@ -32,6 +35,19 @@ public class Confirmation extends Fragment {
 
         TextView textConfirm = (TextView) view.findViewById(R.id.textConfirm);
         textConfirm.setText("Confirmez-vous la transaction de "+ montant + " € à " + commerce + " ?");
+
+        valider.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+            }
+        });
+
+        annuler.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+            }
+        });
+
 
         return view;
 

@@ -17,7 +17,6 @@ import com.github.mikephil.charting.data.PieEntry;
 
 import java.util.ArrayList;
 
-
 /**
  * Created by jerem on 26/03/2018.
  */
@@ -25,16 +24,14 @@ import java.util.ArrayList;
 public class MesDepenses extends Fragment {
 
     PieChart graphe;
-    int[] yData ; //datas a recup dans la BDD
-    String[] xData = {"Alimentation","Transport","Restauration"}; //datas a recup dans la BDD
+    int[] yData = {40,55,22,18,9}; //datas a recup dans la BDD
+    String[] xData  = {"Alimentation","Transport","Restauration","Shopping","Loisir"};  //datas a recup dans la BDD
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.mes_depenses, container, false);
-        //ButterKnife.bind(this, view);
 
-        yData = new int[]{40,55,22};;
         graphe = (PieChart) view.findViewById(R.id.IDgraphe);
         addDataSet();
 
@@ -59,16 +56,20 @@ public class MesDepenses extends Fragment {
 
         PieDataSet pieDataSet = new PieDataSet(yEntrys,"Catégorisation");
         pieDataSet.setSliceSpace(3); //espace entre les datas
-        pieDataSet.setValueTextSize(12); //taille des datas
+        pieDataSet.setValueTextSize(13); //taille des datas
+        pieDataSet.setValueTextColor(Color.WHITE); //taille des datas
 
         ArrayList<Integer> couleurs = new ArrayList<>();
-        couleurs.add(Color.GREEN);
-        couleurs.add(Color.BLUE);
-        couleurs.add(Color.RED);
+
+        couleurs.add(Color.parseColor("#f49441"));
+        couleurs.add(Color.parseColor("#00c5db"));
+        couleurs.add(Color.parseColor("#00ba22"));
+        couleurs.add(Color.parseColor("#a06b00"));
+        couleurs.add(Color.parseColor("#f44141"));
 
         pieDataSet.setColors(couleurs);
 
-        pieDataSet.setDrawValues(false);
+        //pieDataSet.setDrawValues(false);
         //Legend legende = graphe.getLegend();
         //legende.setForm(Legend.LegendForm.CIRCLE);
         //legende.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
@@ -80,6 +81,8 @@ public class MesDepenses extends Fragment {
         PieData pieData =  new PieData(pieDataSet);
         graphe.setData(pieData);
         //graphe.setNoDataText("Aucune sortie d'argent pour le moment");
+        graphe.setCenterText("144€");
+        graphe.setCenterTextSize(30);
         graphe.invalidate();
 
     }

@@ -22,26 +22,20 @@ public class MenuDuTurfu extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item)  {
 
-
-
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    //mTextMessage.setText(R.string.title_home);
+
                     FragmentManager fragmentManager1 = getFragmentManager();
                     FragmentTransaction fragmentTransaction1 = fragmentManager1.beginTransaction();
                     fragmentTransaction1.replace(R.id.content, new MonCompte()).commit();
                     return true;
                 case R.id.navigation_dashboard:
-                    //mTextMessage.setText(R.string.title_dashboard);
+
                     FragmentManager fragmentManager2 = getFragmentManager();
                     FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
                     fragmentTransaction2.replace(R.id.content, new MesDepenses()).commit();
                     return true;
                 case R.id.navigation_notifications:
-                    //mTextMessage.setText(R.string.title_notifications);
-                    /*FragmentManager fragmentManager3 = getFragmentManager();
-                    FragmentTransaction fragmentTransaction3 = fragmentManager3.beginTransaction();
-                    fragmentTransaction3.replace(R.id.content, new EcranPaiement()).commit();*/
 
                     Intent intent = new Intent(MenuDuTurfu.this, DataLink.class);
                     startActivity(intent);
