@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,7 @@ public class MonCompte extends Fragment {
         View view = inflater.inflate(R.layout.mon_compte, container, false);
         //ButterKnife.bind(this, view);
         utilisateurListView = (ListView) view.findViewById(R.id.soldeListView);
-        //new FetchUtilisateurAsyncTask().execute();
+        new FetchUtilisateurAsyncTask().execute();
         return view;
 
     }
@@ -71,11 +72,18 @@ public class MonCompte extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
             //Display progress bar
-            pDialog = new ProgressDialog(getActivity());
-            pDialog.setMessage("Loading. Please wait...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(false);
-            pDialog.show();
+            if (CheckNetworkStatus.isNetworkAvailable(getActivity().getApplicationContext())) {
+                pDialog = new ProgressDialog(getActivity());
+                pDialog.setMessage("Loading. Please wait...");
+                pDialog.setIndeterminate(false);
+                pDialog.setCancelable(false);
+                pDialog.show();
+            }
+            else {
+                Toast.makeText(getActivity(),
+                        "Unable to connect to internet",
+                        Toast.LENGTH_LONG).show();
+            }
         }
 
         @Override
@@ -83,6 +91,12 @@ public class MonCompte extends Fragment {
             HttpJsonParser httpJsonParser = new HttpJsonParser();
             JSONObject jsonObject = httpJsonParser.makeHttpRequest(
                     BASE_URL + "fetch.php", "GET", null);
+            if(jsonObject==null)
+            {
+                //Toast.makeText(getActivity(),"JSON",Toast.LENGTH_SHORT).show();
+                Log.d("ERREUR", "JSoN m'a tuer: ");
+                return "";
+            }
             try {
                 int success = jsonObject.getInt(KEY_SUCCESS);
                 JSONArray utilisateurs;
