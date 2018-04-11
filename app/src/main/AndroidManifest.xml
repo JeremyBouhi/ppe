@@ -4,7 +4,10 @@
 
     <uses-feature android:name="android.hardware.camera"
         android:required="true" />
+
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -42,6 +45,8 @@
         <activity
             android:name=".MenuDuTurfu"
             android:label="@string/title_activity_menu_du_turfu"></activity>
+
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
     </application>
 
 </manifest>
