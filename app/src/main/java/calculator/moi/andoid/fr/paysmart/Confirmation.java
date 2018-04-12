@@ -1,6 +1,7 @@
 package calculator.moi.andoid.fr.paysmart;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -21,10 +22,10 @@ public class Confirmation extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.confirmation, container, false);
+
         Button valider = (Button) view.findViewById(R.id.buttonValider);
         Button annuler = (Button) view.findViewById(R.id.buttonAnnuler);
-
-        View view = inflater.inflate(R.layout.confirmation, container, false);
 
         String ch = getArguments().getString(DATA_RECEIVE);
 
@@ -32,22 +33,24 @@ public class Confirmation extends Fragment {
         String montant = parts[0];
         String commerce= parts[1]; //= "La boulangerie 'La Duchesse'";
 
-
         TextView textConfirm = (TextView) view.findViewById(R.id.textConfirm);
         textConfirm.setText("Confirmez-vous la transaction de "+ montant + " € à " + commerce + " ?");
 
         valider.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Do something in response to button click
+                Intent intent = new Intent(getActivity(), MenuDuTurfu.class);  //Lancer l'activité
+                startActivity(intent);    //Afficher la vue
             }
         });
 
         annuler.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Do something in response to button click
+                Intent intent = new Intent(getActivity(), MenuDuTurfu.class);  //Lancer l'activité
+                startActivity(intent);    //Afficher la vue
             }
         });
-
 
         return view;
 

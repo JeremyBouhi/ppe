@@ -61,8 +61,8 @@ public class MonCompte extends Fragment {
 
         View view = inflater.inflate(R.layout.mon_compte, container, false);
         //ButterKnife.bind(this, view);
-        utilisateurListView = (ListView) view.findViewById(R.id.soldeListView);
-        new FetchUtilisateurAsyncTask().execute();
+        //utilisateurListView = (ListView) view.findViewById(R.id.soldeListView);
+        //new FetchUtilisateurAsyncTask().execute();
         return view;
 
     }

@@ -8,30 +8,31 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/soldeListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:text="Solde Total" />
+            android:text="Solde Total"
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="45dp"
             android:layout_weight="1"
-            android:text="100€" />
+            android:text="100€"
+            android:textSize="40dp" />
 
         <TableLayout
+            style="@style/ListeCategories"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
