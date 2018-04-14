@@ -24,21 +24,23 @@ public class MenuDuTurfu extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-
                     FragmentManager fragmentManager1 = getFragmentManager();
                     FragmentTransaction fragmentTransaction1 = fragmentManager1.beginTransaction();
                     fragmentTransaction1.replace(R.id.content, new MonCompte()).commit();
                     return true;
-                case R.id.navigation_dashboard:
 
+                case R.id.navigation_dashboard:
                     FragmentManager fragmentManager2 = getFragmentManager();
                     FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
                     fragmentTransaction2.replace(R.id.content, new MesDepenses()).commit();
                     return true;
-                case R.id.navigation_notifications:
 
-                    Intent intent = new Intent(MenuDuTurfu.this, DataLink.class);
-                    startActivity(intent);
+                case R.id.navigation_notifications:
+                    /*Intent intent = new Intent(MenuDuTurfu.this, DataLink.class);
+                    startActivity(intent);*/
+                    FragmentManager fragmentManager3 = getFragmentManager();
+                    FragmentTransaction fragmentTransaction3 = fragmentManager3.beginTransaction();
+                    fragmentTransaction3.replace(R.id.content, new EcranPaiement()).commit();
                     return true;
             }
 

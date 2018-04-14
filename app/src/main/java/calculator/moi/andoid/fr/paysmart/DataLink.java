@@ -12,7 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 
 //Cette classe permet l'envoi des données de EcranPaiement à Confirmation
 
-public class DataLink extends AppCompatActivity implements EcranPaiement.DataPassListener {
+public class DataLink extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class DataLink extends AppCompatActivity implements EcranPaiement.DataPas
                     .add(R.id.container, new EcranPaiement()).commit();
         }
     }
-
+/*
     @Override
     public void passData(String data) {
         Confirmation fragmentB = new Confirmation ();
@@ -38,6 +38,6 @@ public class DataLink extends AppCompatActivity implements EcranPaiement.DataPas
         getFragmentManager().beginTransaction()
                 .replace(R.id.container, fragmentB )
                 .commit();
-    }
+    }*/
 }
 

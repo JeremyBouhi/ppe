@@ -15,31 +15,44 @@ import android.widget.TextView;
  * Created by jerem on 11/04/2018.
  */
 
-public class Confirmation extends Fragment {
+public class Confirmation extends AppCompatActivity {
 
     public static final String DATA_RECEIVE = "data";
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.confirmation, container, false);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.confirmation);
 
-        Button valider = (Button) view.findViewById(R.id.buttonValider);
-        Button annuler = (Button) view.findViewById(R.id.buttonAnnuler);
+        Button valider = (Button) findViewById(R.id.buttonValider);
+        Button annuler = (Button) findViewById(R.id.buttonAnnuler);
 
-        String ch = getArguments().getString(DATA_RECEIVE);
+        //String ch = getArguments().getString(DATA_RECEIVE);
+
+        String ch;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if (extras == null) {
+                ch = null;
+            } else {
+                ch = extras.getString("data");
+            }
+        } else {
+            ch = (String) savedInstanceState.getSerializable("data");
+        }
 
         String[] parts = ch.split(" ");
         String montant = parts[0];
-        String commerce= parts[1]; //= "La boulangerie 'La Duchesse'";
+        String commerce = parts[1]; //= "La boulangerie 'La Duchesse'";
 
-        TextView textConfirm = (TextView) view.findViewById(R.id.textConfirm);
-        textConfirm.setText("Confirmez-vous la transaction de "+ montant + " € à " + commerce + " ?");
+        TextView textConfirm = (TextView) findViewById(R.id.textConfirm);
+        textConfirm.setText("Confirmez-vous la transaction de " + montant + " € à " + commerce + " ?");
 
         valider.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Do something in response to button click
-                Intent intent = new Intent(getActivity(), MenuDuTurfu.class);  //Lancer l'activité
+                Intent intent = new Intent(Confirmation.this, MenuDuTurfu.class);  //Lancer l'activité
                 startActivity(intent);    //Afficher la vue
             }
         });
@@ -47,12 +60,10 @@ public class Confirmation extends Fragment {
         annuler.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Do something in response to button click
-                Intent intent = new Intent(getActivity(), MenuDuTurfu.class);  //Lancer l'activité
+                Intent intent = new Intent(Confirmation.this, MenuDuTurfu.class);  //Lancer l'activité
                 startActivity(intent);    //Afficher la vue
             }
+
         });
-
-        return view;
-
     }
 }

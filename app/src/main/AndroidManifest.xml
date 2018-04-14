@@ -52,6 +52,7 @@
 
         <activity
             android:name=".DataLink"> </activity>
+        <activity android:name=".Confirmation" />
 
         <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
     </application>

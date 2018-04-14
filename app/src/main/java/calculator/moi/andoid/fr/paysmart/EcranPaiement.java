@@ -43,7 +43,7 @@ public class EcranPaiement extends Fragment {
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
-    DataPassListener mCallback;
+    /*DataPassListener mCallback;
 
     public interface DataPassListener{
         public void passData(String data);
@@ -63,7 +63,7 @@ public class EcranPaiement extends Fragment {
         {
             throw new ClassCastException(context.toString()+ " must implement OnImageClickListener");
         }
-    }
+    }*/
 
     SurfaceView cameraPreview;
     BarcodeDetector barcodeDetector;
@@ -158,7 +158,11 @@ public class EcranPaiement extends Fragment {
                     Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
                     vibrator.vibrate(500);
 
-                    mCallback.passData(qrcodes.valueAt(0).displayValue);
+                    Intent intent = new Intent(getActivity(), Confirmation.class);
+                    //extra pour envoyer une donnée
+                    intent.putExtra("data",qrcodes.valueAt(0).displayValue);
+                    startActivity(intent);
+                    /*mCallback.passData(qrcodes.valueAt(0).displayValue);*/
                 }
             }
         });
