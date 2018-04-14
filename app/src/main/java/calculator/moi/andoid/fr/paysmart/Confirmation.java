@@ -52,7 +52,7 @@ public class Confirmation extends AppCompatActivity {
         valider.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Do something in response to button click
-                Intent intent = new Intent(Confirmation.this, MenuDuTurfu.class);  //Lancer l'activité
+                Intent intent = new Intent(Confirmation.this, Validation.class);  //Lancer l'activité
                 startActivity(intent);    //Afficher la vue
             }
         });

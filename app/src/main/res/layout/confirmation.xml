@@ -10,15 +10,15 @@
 
         <TextView
             android:id="@+id/textConfirm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             style="@style/TextConfirm"
-            />
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"/>
 
         <Button
             android:id="@+id/buttonValider"
             style="@style/BoutonTheme"
-            android:text="VALIDER" />
+            android:text="CONFIRMER" />
 
         <Button
             android:id="@+id/buttonAnnuler"
