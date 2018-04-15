@@ -16,8 +16,8 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="25dp"
             android:layout_weight="1"
             android:text="Solde Total"
             android:textSize="30dp" />
@@ -26,13 +26,14 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="45dp"
+            android:gravity="center_horizontal"
             android:layout_weight="1"
             android:text="100€"
-            android:textSize="40dp" />
+            android:textSize="70dp"
+            android:layout_marginBottom="30dp"/>
 
         <TableLayout
-            style="@style/ListeCategories"
+            android:id="@+id/compteListe"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -43,12 +44,14 @@
 
                 <TextView
                     android:id="@+id/textView3"
+                    style="@style/ListeCategories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Alimentation" />
 
                 <TextView
                     android:id="@+id/textView5"
+                    style="@style/ListeCategories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="50€" />
@@ -60,12 +63,14 @@
 
                 <TextView
                     android:id="@+id/textView6"
+                    style="@style/ListeCategories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Transport" />
 
                 <TextView
                     android:id="@+id/textView7"
+                    style="@style/ListeCategories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="30€" />

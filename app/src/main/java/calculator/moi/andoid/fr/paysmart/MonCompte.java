@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -27,6 +29,7 @@ import calculator.moi.andoid.fr.paysmart.Helpers.HttpJsonParser;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,6 +66,30 @@ public class MonCompte extends Fragment {
         //ButterKnife.bind(this, view);
         //utilisateurListView = (ListView) view.findViewById(R.id.soldeListView);
         //new FetchUtilisateurAsyncTask().execute();
+        TableLayout tableLayout = view.findViewById(R.id.compteListe);
+
+        TableRow tablerow = new TableRow(getActivity());
+        TextView cat = new TextView(getActivity());
+        TextView montant = new TextView(getActivity());
+
+        //style="@style/ListeCategories"
+        cat.setText("Loisir");
+        montant.setText("10€");
+
+        tablerow.addView(cat);
+        tablerow.addView(montant);
+
+
+        tablerow.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Toast.makeText(getActivity(),"yeyyy", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        tableLayout.addView(tablerow);
         return view;
 
     }
