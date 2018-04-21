@@ -86,6 +86,8 @@ public class MonCompte extends Fragment {
             public void onClick(View v)
             {
                 Toast.makeText(getActivity(),"yeyyy", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), MapDuTurfu.class);
+                startActivity(intent);
             }
         });
 

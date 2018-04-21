@@ -2,10 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="calculator.moi.andoid.fr.paysmart">
 
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -22,6 +20,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCt0qBkOZwe8I1sc78U90LpLjZmmgB3Q0E" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,6 +47,10 @@
         <activity android:name=".Validation"
             android:parentActivityName=".Confirmation"
             android:label="Payer"/>
+
+        <activity android:name=".MapDuTurfu"
+            android:parentActivityName=".MenuDuTurfu"
+            android:label="Où va t-on?"/>
 
     </application>
 
