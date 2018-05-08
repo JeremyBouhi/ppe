@@ -31,6 +31,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 /**
  * Created by jerem on 20/04/2018.
  */
@@ -42,10 +45,12 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
     double lat,lng;
     Location mLocation;
     Location loc = null;
-    private int PROXIMITY_RADIUS = 10000;
+    private int PROXIMITY_RADIUS = 5000;
     GoogleApiClient mGoogleApiClient;
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
+
+    String types = "stadium|school";
 
 
     @Override
@@ -55,19 +60,6 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
 
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-/*
-        LocationRequest mLocationRequest;
-        mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(10000);
-        mLocationRequest.setFastestInterval(5000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-
-        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
-                .addLocationRequest(mLocationRequest);
-
-        SettingsClient client = LocationServices.getSettingsClient(this);
-        Task<LocationSettingsResponse> task = client.checkLocationSettings(builder.build());*/
-
 
         //Get the location manager
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -79,17 +71,8 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             mMap.setMyLocationEnabled(true);
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            //latituteField.setText("Location not available");
             return;
         }
-
-
 
         mLocation = locationManager.getLastKnownLocation(provider);
         lat = mLocation.getLatitude();
@@ -99,9 +82,21 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
         // Initialize the location fields
         if (mLocation != null) {
             System.out.println("Provider " + provider + " has been selected.");
-
         }
 
+/*
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                types= null;
+            } else {
+                types= extras.getString("typeKey");
+            }
+        } else {
+            types= (String) savedInstanceState.getSerializable("typeKey");
+        }
+        Log.e("za",types);
+        types = "school";*/
     }
 
     private String getUrl(double latitude, double longitude, String nearbyPlace) {
@@ -109,25 +104,16 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
         StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         googlePlacesUrl.append("location=" + latitude + "," + longitude);
         googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
-        googlePlacesUrl.append("&type=" + nearbyPlace);
+        try {
+            googlePlacesUrl.append("&type=" + nearbyPlace + URLEncoder.encode(types,"UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         googlePlacesUrl.append("&sensor=true");
         googlePlacesUrl.append("&key=" + "AIzaSyA_4EXFGADXbvnhYrlbBb1QN7ffOs2loNE");
         Log.d("getUrl", googlePlacesUrl.toString());
         return (googlePlacesUrl.toString());
     }
-
-    /*private boolean CheckGooglePlayServices() {
-        GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
-        int result = googleAPI.isGooglePlayServicesAvailable(this);
-        if(result != ConnectionResult.SUCCESS) {
-            if(googleAPI.isUserResolvableError(result)) {
-                googleAPI.getErrorDialog(this, result,
-                        0).show();
-            }
-            return false;
-        }
-        return true;
-    }*/
 
 
     @Override
@@ -141,16 +127,10 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
         lat = location.getLatitude();
         lng = location.getLongitude();
         LatLng latLng = new LatLng(lat, lng);
-        /*MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(latLng);
-        markerOptions.title("Current Position");
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
-        mCurrLocationMarker = mMap.addMarker(markerOptions);*/
-
 
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(14.5f));
 
         Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f",lat,lng));
 
@@ -194,25 +174,18 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
 
         LatLng now = new LatLng(lat, lng);
 
-        /*mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(lat, lng))
-                .title("Ma position"));*/
-
-        float zoomLevel = 15.0f; //This goes up to 21
+        float zoomLevel = 16f; //This goes up to 21
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(now, zoomLevel));
 
-        String Restaurant = "restaurant";
-
-        //afficher les bons bails qui sont à côté
-        //mMap.clear();
-        String url = getUrl(lat, lng, Restaurant);
+        String url = null;
+        url = getUrl(lat, lng, types);
         Object[] DataTransfer = new Object[2];
         DataTransfer[0] = mMap;
         DataTransfer[1] = url;
         Log.d("onClick", url);
         GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
         getNearbyPlacesData.execute(DataTransfer);
-        Toast.makeText(this,"Nearby Restaurants", Toast.LENGTH_LONG).show();
+
     }
 
 

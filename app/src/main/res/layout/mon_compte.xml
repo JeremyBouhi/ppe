@@ -38,43 +38,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView3"
-                    style="@style/ListeCategories"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Alimentation" />
-
-                <TextView
-                    android:id="@+id/textView5"
-                    style="@style/ListeCategories"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="50€" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView6"
-                    style="@style/ListeCategories"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Transport" />
-
-                <TextView
-                    android:id="@+id/textView7"
-                    style="@style/ListeCategories"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="30€" />
-            </TableRow>
         </TableLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

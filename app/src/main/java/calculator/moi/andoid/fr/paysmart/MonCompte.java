@@ -68,30 +68,68 @@ public class MonCompte extends Fragment {
         //new FetchUtilisateurAsyncTask().execute();
         TableLayout tableLayout = view.findViewById(R.id.compteListe);
 
-        TableRow tablerow = new TableRow(getActivity());
-        TextView cat = new TextView(getActivity());
-        TextView montant = new TextView(getActivity());
+        TableRow tablerow1 = new TableRow(getActivity());
+        TableRow tablerow2 = new TableRow(getActivity());
+        TableRow tablerow3 = new TableRow(getActivity());
+
+        TextView cat1 = new TextView(getActivity());
+        TextView montant1 = new TextView(getActivity());
+        TextView cat2 = new TextView(getActivity());
+        TextView montant2 = new TextView(getActivity());
+        TextView cat3 = new TextView(getActivity());
+        TextView montant3 = new TextView(getActivity());
 
         //style="@style/ListeCategories"
-        cat.setText("Loisir");
-        montant.setText("10€");
+        cat1.setText("Alimentation");
+        montant1.setText("50€");
+        cat2.setText("Transport");
+        montant2.setText("30€");
+        cat3.setText("Loisir");
+        montant3.setText("10€");
 
-        tablerow.addView(cat);
-        tablerow.addView(montant);
+        tablerow1.addView(cat1);
+        tablerow1.addView(montant1);
+        tablerow2.addView(cat2);
+        tablerow2.addView(montant2);
+        tablerow3.addView(cat3);
+        tablerow3.addView(montant3);
 
+        final String typeKey = "";
 
-        tablerow.setOnClickListener(new View.OnClickListener()
+        tablerow1.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Toast.makeText(getActivity(),"yeyyy", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), MapDuTurfu.class);
+                intent.putExtra("school",typeKey);
+                startActivity(intent);
+            }
+        });
+        tablerow2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), MapDuTurfu.class);
+                intent.putExtra("stadium",typeKey);
+                startActivity(intent);
+            }
+        });
+        tablerow3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), MapDuTurfu.class);
+                intent.putExtra("school",typeKey);
                 startActivity(intent);
             }
         });
 
-        tableLayout.addView(tablerow);
+        tableLayout.addView(tablerow1);
+        tableLayout.addView(tablerow2);
+        tableLayout.addView(tablerow3);
         return view;
 
     }
