@@ -1,8 +1,5 @@
 package calculator.moi.andoid.fr.paysmart;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -14,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 
 public class DataLink extends AppCompatActivity {
 
+    //@TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
