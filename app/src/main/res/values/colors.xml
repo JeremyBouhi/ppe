@@ -15,12 +15,11 @@
     <color name="bleu">#00a2ff</color>
 
     //pour la bannière du haut
-    <color name="orangeClair">#ffcc9a</color>
+    <color name="orangeClair">#ffeede</color>
     <color name="bleuClair">#c1eaff</color>
 
     //pour l'onglet selectionné
     <color name="orangeFonce">#ff5400</color>
     <color name="bleuFonce">#0030ff</color>
-
 
 </resources>

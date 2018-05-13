@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/orangeClair">
 
 
     <LinearLayout
@@ -17,10 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="35dp"
             android:layout_weight="1"
             android:text="Solde Total"
-            android:textSize="30dp" />
+            android:textSize="40dp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -28,9 +29,9 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:layout_weight="1"
-            android:text="100€"
-            android:textSize="70dp"
-            android:layout_marginBottom="30dp"/>
+            android:text="115€"
+            android:textSize="75dp"
+            android:layout_marginBottom="60dp"/>
 
         <TableLayout
             android:id="@+id/compteListe"

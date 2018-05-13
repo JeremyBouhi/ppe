@@ -1,38 +1,31 @@
 package calculator.moi.andoid.fr.paysmart;
 
-import android.app.Activity;
-import android.os.Bundle;
 import android.app.Fragment;
-
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.AdapterView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import calculator.moi.andoid.fr.paysmart.Helpers.CheckNetworkStatus;
-import calculator.moi.andoid.fr.paysmart.Helpers.HttpJsonParser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import calculator.moi.andoid.fr.paysmart.Helpers.CheckNetworkStatus;
+import calculator.moi.andoid.fr.paysmart.Helpers.HttpJsonParser;
 
 /**
  * Created by jerem on 21/03/2018.
@@ -71,6 +64,7 @@ public class MonCompte extends Fragment {
         TableRow tablerow1 = new TableRow(getActivity());
         TableRow tablerow2 = new TableRow(getActivity());
         TableRow tablerow3 = new TableRow(getActivity());
+        TableRow tablerow4 = new TableRow(getActivity());
 
         TextView cat1 = new TextView(getActivity());
         TextView montant1 = new TextView(getActivity());
@@ -78,14 +72,26 @@ public class MonCompte extends Fragment {
         TextView montant2 = new TextView(getActivity());
         TextView cat3 = new TextView(getActivity());
         TextView montant3 = new TextView(getActivity());
+        TextView cat4 = new TextView(getActivity());
+        TextView montant4 = new TextView(getActivity());
 
-        //style="@style/ListeCategories"
         cat1.setText("Alimentation");
-        montant1.setText("50€");
+        montant1.setText("40€");
         cat2.setText("Transport");
         montant2.setText("30€");
-        cat3.setText("Loisir");
-        montant3.setText("10€");
+        cat3.setText("Shopping");
+        montant3.setText("25€");
+        cat4.setText("Loisir");
+        montant4.setText("20€");
+
+        cat1.setTextAppearance(getActivity(),R.style.ListeCategoriesCompte);
+        cat2.setTextAppearance(getActivity(),R.style.ListeCategoriesCompte);
+        cat3.setTextAppearance(getActivity(),R.style.ListeCategoriesCompte);
+        cat4.setTextAppearance(getActivity(),R.style.ListeCategoriesCompte);
+        montant1.setTextAppearance(getActivity(),R.style.ListeCategoriesCompteMontant);
+        montant2.setTextAppearance(getActivity(),R.style.ListeCategoriesCompteMontant);
+        montant3.setTextAppearance(getActivity(),R.style.ListeCategoriesCompteMontant);
+        montant4.setTextAppearance(getActivity(),R.style.ListeCategoriesCompteMontant);
 
         tablerow1.addView(cat1);
         tablerow1.addView(montant1);
@@ -93,8 +99,8 @@ public class MonCompte extends Fragment {
         tablerow2.addView(montant2);
         tablerow3.addView(cat3);
         tablerow3.addView(montant3);
-
-        final String typeKey = "";
+        tablerow4.addView(cat4);
+        tablerow4.addView(montant4);
 
         tablerow1.setOnClickListener(new View.OnClickListener()
         {
@@ -102,7 +108,7 @@ public class MonCompte extends Fragment {
             public void onClick(View v)
             {
                 Intent intent = new Intent(getActivity(), MapDuTurfu.class);
-                intent.putExtra("school",typeKey);
+                intent.putExtra("keyName","supermarket");
                 startActivity(intent);
             }
         });
@@ -112,7 +118,7 @@ public class MonCompte extends Fragment {
             public void onClick(View v)
             {
                 Intent intent = new Intent(getActivity(), MapDuTurfu.class);
-                intent.putExtra("stadium",typeKey);
+                intent.putExtra("keyName","subway_station");
                 startActivity(intent);
             }
         });
@@ -122,7 +128,17 @@ public class MonCompte extends Fragment {
             public void onClick(View v)
             {
                 Intent intent = new Intent(getActivity(), MapDuTurfu.class);
-                intent.putExtra("school",typeKey);
+                intent.putExtra("keyName","clothing_store");
+                startActivity(intent);
+            }
+        });
+        tablerow4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), MapDuTurfu.class);
+                intent.putExtra("keyName","night_club");
                 startActivity(intent);
             }
         });
@@ -130,6 +146,7 @@ public class MonCompte extends Fragment {
         tableLayout.addView(tablerow1);
         tableLayout.addView(tablerow2);
         tableLayout.addView(tablerow3);
+        tableLayout.addView(tablerow4);
         return view;
 
     }

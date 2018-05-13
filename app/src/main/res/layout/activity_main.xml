@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="calculator.moi.andoid.fr.paysmart.MainActivity">
+    tools:context="calculator.moi.andoid.fr.paysmart.MainActivity"
+    android:background="@color/orangeClair">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/logofinal" />
+            app:srcCompat="@drawable/logooo"
+            android:layout_marginTop="60dp"/>
 
         <EditText
             android:id="@+id/editText"

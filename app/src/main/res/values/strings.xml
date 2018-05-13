@@ -7,8 +7,8 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_menu_du_turfu">PaySmart</string>
-    <string name="title_home">Mon Compte</string>
-    <string name="title_dashboard">Mes Dépenses</string>
+    <string name="title_home">Compte</string>
+    <string name="title_dashboard">Dépenses</string>
     <string name="title_notifications">Payer</string>
 
     <!-- TODO: Remove or change this placeholder text -->

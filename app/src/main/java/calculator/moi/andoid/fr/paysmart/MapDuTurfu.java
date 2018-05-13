@@ -1,12 +1,11 @@
 package calculator.moi.andoid.fr.paysmart;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
-import com.google.android.gms.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,20 +15,18 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -50,7 +47,7 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
 
-    String types = "stadium|school";
+    String types = "";
 
 
     @Override
@@ -83,20 +80,6 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
         if (mLocation != null) {
             System.out.println("Provider " + provider + " has been selected.");
         }
-
-/*
-        if (savedInstanceState == null) {
-            Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                types= null;
-            } else {
-                types= extras.getString("typeKey");
-            }
-        } else {
-            types= (String) savedInstanceState.getSerializable("typeKey");
-        }
-        Log.e("za",types);
-        types = "school";*/
     }
 
     private String getUrl(double latitude, double longitude, String nearbyPlace) {
@@ -105,7 +88,7 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
         googlePlacesUrl.append("location=" + latitude + "," + longitude);
         googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
         try {
-            googlePlacesUrl.append("&type=" + nearbyPlace + URLEncoder.encode(types,"UTF-8"));
+            googlePlacesUrl.append("&type=" + URLEncoder.encode(types,"UTF-8"));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -177,12 +160,17 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
         float zoomLevel = 16f; //This goes up to 21
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(now, zoomLevel));
 
+        Intent intent = getIntent();
+        types = intent.getStringExtra("keyName");
+
+        Log.e("za",types);
+
         String url = null;
         url = getUrl(lat, lng, types);
         Object[] DataTransfer = new Object[2];
         DataTransfer[0] = mMap;
         DataTransfer[1] = url;
-        Log.d("onClick", url);
+        Log.e("url", url);
         GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
         getNearbyPlacesData.execute(DataTransfer);
 
@@ -200,7 +188,6 @@ public class MapDuTurfu extends AppCompatActivity implements LocationListener, G
                 == PackageManager.PERMISSION_GRANTED) {
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         }
-
     }
 
     @Override
